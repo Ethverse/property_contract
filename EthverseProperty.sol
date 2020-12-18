@@ -543,9 +543,6 @@ contract EthverseProperty is Context, Ownable, ERC165, IERC721, IERC721Metadata,
     
     mapping (uint256 => uint256) public propertyCity;
     mapping (uint256 => mapping (uint256 => PropertyMeta)) internal property;
-    mapping (uint256 => mapping (uint256 => PropertySaleMeta)) internal propertySale;
-    mapping (uint256 => mapping (uint256 => BidsMeta)) internal bids;
-    mapping (uint256 => mapping (uint256 => LoanMeta)) internal loans;
     
     
     
@@ -557,26 +554,6 @@ contract EthverseProperty is Context, Ownable, ERC165, IERC721, IERC721Metadata,
         uint locked_tokens;
         uint created_on;
     }
-    
-    
-    struct PropertySaleMeta {
-        uint property_id;
-        address buyer;
-        bool auction;
-        uint amount;
-        uint expiry;
-    }
-    
-    
-    struct BidsMeta {
-        bool status;
-        uint index;
-        mapping (uint256 => mapping (address => uint256)) bids;
-        mapping (uint256 => uint256) total_bids;
-        mapping (uint256 => uint256) last_amount;
-        mapping (uint256 => address) last_bidder;
-    }
-    
     
     
     // Property Functions
